@@ -1,9 +1,12 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import { ArrowRight, Book, Database, Layers, Shield, ZapIcon, Lock, Activity } from "lucide-react";
 import { useEffect, useState } from "react";
+import { AnimatedCounter } from "../components/AnimatedCounter";
+
+const HERO_WORDS = ["Sovereignty", "Intelligence", "Automation", "Excellence"];
 
 const services = [
   {
@@ -31,9 +34,14 @@ const services = [
 
 export default function Home() {
   const [mounted, setMounted] = useState(false);
+  const [currentWord, setCurrentWord] = useState(0);
 
   useEffect(() => {
     setMounted(true);
+    const interval = setInterval(() => {
+      setCurrentWord((prev) => (prev + 1) % HERO_WORDS.length);
+    }, 2500);
+    return () => clearInterval(interval);
   }, []);
 
   if (!mounted) return null;
@@ -60,10 +68,23 @@ export default function Home() {
             initial={{ scale: 0.5, opacity: 0, filter: "blur(20px)" }}
             animate={{ scale: 1, opacity: 1, filter: "blur(0px)" }}
             transition={{ duration: 1.2, ease: "easeOut" }}
-            className="hero-text text-[clamp(3rem,6vw,6rem)] leading-[0.8] mb-4"
+            className="hero-text text-[clamp(2.5rem,6vw,6rem)] leading-[0.8] mb-4 flex flex-col items-center justify-center"
           >
-            Digital <br />
-            <span className="gradient-text italic teal-glow">Sovereignty</span>
+            <span>Digital</span>
+            <div className="h-[1.2em] overflow-hidden relative w-full text-center mt-3 pt-2">
+              <AnimatePresence mode="popLayout">
+                <motion.div
+                  key={currentWord}
+                  initial={{ y: "150%", opacity: 0 }}
+                  animate={{ y: 0, opacity: 1 }}
+                  exit={{ y: "-150%", opacity: 0 }}
+                  transition={{ duration: 0.8, ease: "easeInOut" }}
+                  className="gradient-text italic teal-glow w-full flex justify-center"
+                >
+                  {HERO_WORDS[currentWord]}
+                </motion.div>
+              </AnimatePresence>
+            </div>
           </motion.h1>
 
           <motion.p
@@ -223,13 +244,13 @@ export default function Home() {
       < section className="max-w-7xl mx-auto px-6 w-full text-center reveal-scale py-20" >
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-12 bg-black/40 p-16 rounded-[4rem] border border-white/5 shadow-2xl">
           {[
-            { v: "500K+", l: "MIGRATED RECORDS", c: "text-teal" },
-            { v: "100%", l: "SYSTEM UPTIME", c: "text-lime" },
-            { v: "24/7", l: "EXPERT ASSISTANCE", c: "text-teal" },
-            { v: "15+", l: "COUNTRIES SERVED", c: "text-white" }
+            { v: 500, suf: "K+", l: "MIGRATED RECORDS", c: "text-teal" },
+            { v: 100, suf: "%", l: "SYSTEM UPTIME", c: "text-lime" },
+            { v: 24, suf: "/7", l: "EXPERT ASSISTANCE", c: "text-teal" },
+            { v: 15, suf: "+", l: "COUNTRIES SERVED", c: "text-white" }
           ].map((stat, i) => (
             <div key={i} className="flex flex-col gap-5 hover:scale-110 transition-transform duration-500 cursor-cell">
-              <div className={`text-4xl md:text-6xl font-black uppercase tracking-tighter ${stat.c} italic drop-shadow-2xl`}>{stat.v}</div>
+              <AnimatedCounter value={stat.v} suffix={stat.suf} className={`text-4xl md:text-6xl font-black uppercase tracking-tighter ${stat.c} italic drop-shadow-2xl`} />
               <div className="text-[10px] font-black uppercase tracking-[0.4em] text-gray-500">{stat.l}</div>
             </div>
           ))}
