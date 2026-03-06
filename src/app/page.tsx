@@ -1,9 +1,9 @@
 "use client";
 
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, useScroll, useTransform } from "framer-motion";
 import Link from "next/link";
-import { ArrowRight, Book, Database, Layers, Shield, ZapIcon, Lock, Activity } from "lucide-react";
-import { useEffect, useState } from "react";
+import { ArrowRight, Book, Database, Layers, Shield, ZapIcon, Lock, Activity, Hexagon, Component } from "lucide-react";
+import { useEffect, useState, useRef } from "react";
 import { AnimatedCounter } from "../components/AnimatedCounter";
 
 const HERO_WORDS = ["Sovereignty", "Intelligence", "Automation", "Excellence"];
@@ -44,14 +44,26 @@ export default function Home() {
     return () => clearInterval(interval);
   }, []);
 
+  const { scrollYProgress } = useScroll();
+  const heroY = useTransform(scrollYProgress, [0, 0.2], ["0%", "30%"]);
+  const heroOpacity = useTransform(scrollYProgress, [0, 0.2], [1, 0]);
+  const parallaxY = useTransform(scrollYProgress, [0, 1], ["0%", "50%"]);
+  const rotateGear = useTransform(scrollYProgress, [0, 1], [0, 360]);
+
   if (!mounted) return null;
 
   return (
     <div className="flex flex-col gap-16 md:gap-32 pb-16 md:pb-32 overflow-hidden bg-background">
 
+      {/* Scroll Progress Bar */}
+      <motion.div
+        className="fixed top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-teal to-lime origin-left z-[1000] shadow-[0_0_20px_rgba(0,154,157,0.8)]"
+        style={{ scaleX: scrollYProgress }}
+      />
+
       {/* Hero Section */}
       <section className="relative min-h-[50vh] md:min-h-[90vh] flex flex-col items-center justify-start md:justify-center px-6 pt-24 md:pt-10">
-        <div className="max-w-7xl w-full flex flex-col items-center text-center gap-6 md:gap-8 relative z-10">
+        <motion.div style={{ y: heroY, opacity: heroOpacity }} className="max-w-7xl w-full flex flex-col items-center text-center gap-6 md:gap-8 relative z-10">
 
           <motion.div
             initial={{ opacity: 0, y: -50, rotate: -10 }}
@@ -128,9 +140,14 @@ export default function Home() {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-10">
           {services.map((service, idx) => (
-            <div
+            <motion.div
+              initial={{ opacity: 0, scale: 0.8, y: 50 }}
+              whileInView={{ opacity: 1, scale: 1, y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ delay: idx * 0.2, duration: 0.7, type: "spring", bounce: 0.4 }}
+              whileHover={{ y: -15, scale: 1.02 }}
               key={service.title}
-              className={`group p-8 md:p-12 premium-glass rounded-[2.5rem] md:rounded-[3.5rem] relative overflow-hidden flex flex-col items-center text-center border border-white/5 hover-pulse-border transition-all duration-500`}
+              className={`group p-8 md:p-12 premium-glass rounded-[2.5rem] md:rounded-[3.5rem] relative overflow-hidden flex flex-col items-center text-center border border-white/5 hover-pulse-border transition-all duration-500 shadow-2xl`}
             >
               <div className="p-6 md:p-8 bg-black/40 rounded-[1.5rem] md:rounded-[2rem] w-fit mb-8 md:mb-10 group-hover:bg-teal/20 transition-all shadow-[0_0_40px_-10px_rgba(0,154,157,0.3)] duration-500 group-hover:scale-110 group-hover:rotate-6">
                 {service.icon}
@@ -150,16 +167,26 @@ export default function Home() {
                   <ArrowRight size={20} />
                 </Link>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
       </section>
 
       {/* Security Showcase - Slide Dual Direction */}
       <section className="w-full relative py-16 md:py-40 overflow-hidden bg-black/60 border-y border-white/5">
-        <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+        <motion.div style={{ y: parallaxY }} className="absolute inset-0 z-0 flex items-center justify-center opacity-10 pointer-events-none">
+          <Hexagon size={800} className="text-teal animate-[spin_50s_linear_infinite]" />
+        </motion.div>
 
-          <div className="flex flex-col gap-8 md:gap-10 reveal-left">
+        <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center relative z-10">
+
+          <motion.div
+            initial={{ opacity: 0, x: -100 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="flex flex-col gap-8 md:gap-10"
+          >
             <span className="text-lime font-black uppercase tracking-[0.5em] text-[10px] bg-lime/10 w-fit px-4 py-2 rounded-lg border border-lime/20 shadow-[0_0_20px_rgba(206,224,0,0.2)]">Security Protocols</span>
             <h2 className="text-3xl md:text-5xl lg:text-6xl font-black uppercase leading-[0.85] tracking-tighter">
               Hardened <br /><span className="gradient-text italic">Fortress</span>
@@ -185,9 +212,16 @@ export default function Home() {
                 </div>
               ))}
             </div>
-          </div>
+          </motion.div>
 
-          <div className="relative p-8 md:p-12 premium-glass rounded-[3rem] md:rounded-[4rem] group overflow-hidden shadow-2xl border-teal/20 reveal-right hover-pulse-border cursor-pointer">
+          <motion.div
+            initial={{ opacity: 0, x: 100, rotateY: 30 }}
+            whileInView={{ opacity: 1, x: 0, rotateY: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 1, type: "spring" }}
+            whileHover={{ scale: 1.05, rotateZ: 2 }}
+            className="relative p-8 md:p-12 premium-glass rounded-[3rem] md:rounded-[4rem] group overflow-hidden shadow-2xl border-teal/20 hover-pulse-border cursor-pointer perspective-1000"
+          >
             <div className="absolute inset-0 bg-gradient-to-br from-teal/20 via-transparent to-lime/10 opacity-30 group-hover:opacity-60 transition-opacity duration-700" />
             <div className="relative z-10 flex flex-col gap-8 md:gap-10 items-center text-center">
               <div className="relative">
@@ -210,12 +244,12 @@ export default function Home() {
                 <p className="text-gray-400 font-black italic uppercase tracking-[0.3em] text-[10px]">Processing Records: 1,847,203...</p>
               </div>
             </div>
-          </div>
+          </motion.div>
         </div>
       </section>
 
       {/* The Method - Heavy Blur Reveal */}
-      <section className="max-w-7xl mx-auto px-6 w-full space-y-12 md:space-y-24 reveal-blur pt-10 md:pt-20">
+      <section className="max-w-7xl mx-auto px-6 w-full space-y-12 md:space-y-24 pt-10 md:pt-20">
         <div className="text-center space-y-6">
           <h2 className="text-3xl md:text-5xl font-black uppercase italic tracking-tighter">THE <span className="gradient-text">METHOD</span></h2>
           <p className="text-gray-500 font-black uppercase tracking-[0.4em] text-[11px] border border-white/10 inline-block px-6 py-2 rounded-full bg-white/5">Deployment Workflow</p>
@@ -228,14 +262,22 @@ export default function Home() {
             { n: "03", t: "MIGRATE", d: "Zero-loss data transfer protocol." },
             { n: "04", t: "OPERATE", d: "24/7 technical surveillance." }
           ].map((step, i) => (
-            <div key={i} className={`flex flex-col gap-6 p-8 md:p-10 premium-glass rounded-[2rem] md:rounded-[3rem] group hover:bg-teal/5 transition-all text-center hover-pulse-border cursor-pointer relative overflow-hidden`} style={{ transitionDelay: `${i * 50}ms` }}>
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, filter: "blur(20px)", scale: 0.8 }}
+              whileInView={{ opacity: 1, filter: "blur(0px)", scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: i * 0.15, duration: 0.8 }}
+              whileHover={{ scale: 1.05, y: -10 }}
+              className={`flex flex-col gap-6 p-8 md:p-10 premium-glass rounded-[2rem] md:rounded-[3rem] group hover:bg-teal/5 transition-all text-center hover-pulse-border cursor-pointer relative overflow-hidden`}
+            >
               <div className="absolute -top-10 -right-10 w-32 h-32 bg-teal/10 rounded-full filter blur-2xl group-hover:bg-lime/20 transition-colors" />
               <span className="text-6xl font-black gradient-text opacity-20 group-hover:opacity-100 group-hover:scale-125 transition-all relative z-10">{step.n}</span>
               <div className="space-y-4 relative z-10">
                 <h4 className="text-2xl font-black uppercase italic tracking-tighter text-white">{step.t}</h4>
                 <p className="text-gray-400 font-bold text-[11px] uppercase tracking-widest leading-relaxed">{step.d}</p>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
       </section >
@@ -265,8 +307,14 @@ export default function Home() {
       </section>
 
       {/* Metrics - Scale on Scroll */}
-      < section className="max-w-7xl mx-auto px-6 w-full text-center reveal-scale py-12 md:py-20" >
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12 bg-black/40 p-10 md:p-16 rounded-[2.5rem] md:rounded-[4rem] border border-white/5 shadow-2xl">
+      < section className="max-w-7xl mx-auto px-6 w-full text-center py-12 md:py-20" >
+        <motion.div
+          initial={{ opacity: 0, scale: 0.8 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 1, type: "spring", bounce: 0.3 }}
+          className="grid grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12 bg-black/40 p-10 md:p-16 rounded-[2.5rem] md:rounded-[4rem] border border-white/5 shadow-2xl"
+        >
           {[
             { v: 500, suf: "K+", l: "MIGRATED RECORDS", c: "text-teal" },
             { v: 100, suf: "%", l: "SYSTEM UPTIME", c: "text-lime" },
@@ -278,13 +326,19 @@ export default function Home() {
               <div className="text-[9px] md:text-[10px] font-black uppercase tracking-[0.2em] md:tracking-[0.4em] text-gray-500">{stat.l}</div>
             </div>
           ))}
-        </div>
+        </motion.div>
       </section >
 
       {/* CTA - Slide Up Deep */}
       < section className="max-w-6xl mx-auto px-6 py-12 md:py-20 relative z-10 overflow-hidden" style={{ minHeight: "400px" }
       }>
-        <div className="relative p-10 md:p-24 bg-gradient-to-br from-black to-[#05161a] rounded-[3rem] md:rounded-[5rem] text-center overflow-hidden group border border-teal/30 reveal-up hover-pulse-border flex flex-col items-center">
+        <motion.div
+          initial={{ opacity: 0, y: 150 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className="relative p-10 md:p-24 bg-gradient-to-br from-black to-[#05161a] rounded-[3rem] md:rounded-[5rem] text-center overflow-hidden group border border-teal/30 hover-pulse-border flex flex-col items-center shadow-[0_0_80px_rgba(0,154,157,0.15)]"
+        >
           <div className="absolute inset-0 bg-gradient-to-br from-teal/20 via-transparent to-lime/10 opacity-50 pointer-events-none group-hover:scale-110 transition-transform duration-1000" />
 
           <div className="relative z-10 mb-6 p-5 bg-teal/10 rounded-full animate-bounce">
@@ -300,7 +354,7 @@ export default function Home() {
           <Link href="/contact" className="relative z-10 px-8 py-6 md:px-16 md:py-8 bg-teal text-black rounded-[2rem] md:rounded-full font-black uppercase tracking-[0.2em] md:tracking-[0.4em] text-[12px] md:text-[14px] hover:scale-[1.15] hover:bg-lime active:scale-95 transition-all shadow-[0_0_40px_rgba(0,154,157,0.6)] inline-block cursor-pointer">
             Get Mission Started
           </Link>
-        </div>
+        </motion.div>
       </section >
 
     </div >
