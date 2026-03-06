@@ -19,8 +19,8 @@ export default function Navbar() {
   ];
 
   return (
-    <nav className="fixed top-4 md:top-8 left-1/2 -translate-x-1/2 w-full max-w-[1500px] z-[100] transition-all px-4 md:px-8">
-      <div className="premium-glass px-6 py-4 md:px-12 md:py-7 rounded-[2rem] md:rounded-full flex items-center justify-between border-white/10 shadow-[0_30px_60px_-15px_rgba(0,0,0,0.6)] relative overflow-hidden">
+    <nav className="fixed top-0 md:top-8 left-1/2 -translate-x-1/2 w-full max-w-[1500px] z-[100] transition-all px-0 md:px-8">
+      <div className="bg-black/95 md:bg-transparent premium-glass px-6 py-4 md:px-12 md:py-7 rounded-none md:rounded-full flex items-center justify-between border-b md:border-y md:border-x border-white/10 shadow-2xl relative overflow-hidden backdrop-blur-3xl">
         <div className="absolute inset-0 bg-gradient-to-r from-teal/10 via-transparent to-lime/10 opacity-30 pointer-events-none" />
 
         <Link href="/" className="flex items-center gap-4 relative z-10 group">
@@ -68,7 +68,7 @@ export default function Navbar() {
             initial={{ opacity: 0, y: -20, scale: 0.95 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: -20, scale: 0.95 }}
-            className="md:hidden premium-glass mt-6 p-10 rounded-[3rem] flex flex-col gap-8 border border-white/10 shadow-3xl relative z-[101]"
+            className="md:hidden bg-black/95 premium-glass mt-2 mx-4 p-8 rounded-[2rem] flex flex-col gap-8 border border-white/10 shadow-3xl relative z-[101] backdrop-blur-3xl"
           >
             {navLinks.map((link) => (
               <Link
