@@ -47,7 +47,7 @@ export default function Home() {
   if (!mounted) return null;
 
   return (
-    <div className="flex flex-col gap-32 pb-32 overflow-hidden bg-background">
+    <div className="flex flex-col gap-16 md:gap-32 pb-16 md:pb-32 overflow-hidden bg-background">
 
       {/* Hero Section */}
       <section className="relative min-h-[90vh] flex flex-col items-center justify-center px-6 pt-10">
@@ -121,12 +121,12 @@ export default function Home() {
 
       {/* Core systems Grid - Heavy Rotate Reveal */}
       <section className="max-w-7xl mx-auto px-6 w-full relative z-10 reveal-rotate">
-        <div className="mb-24 flex flex-col items-center text-center gap-4">
-          <h2 className="text-4xl md:text-6xl font-black uppercase tracking-tighter">Core <span className="gradient-text italic">Engines</span></h2>
+        <div className="mb-12 md:mb-24 flex flex-col items-center text-center gap-4">
+          <h2 className="text-3xl md:text-4xl lg:text-6xl font-black uppercase tracking-tighter">Core <span className="gradient-text italic">Engines</span></h2>
           <p className="text-teal font-black uppercase tracking-[0.4em] text-[11px]">Proprietary Automation Frameworks</p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-10">
           {services.map((service, idx) => (
             <div
               key={service.title}
@@ -156,7 +156,7 @@ export default function Home() {
       </section>
 
       {/* Security Showcase - Slide Dual Direction */}
-      <section className="w-full relative py-24 md:py-40 overflow-hidden bg-black/60 border-y border-white/5">
+      <section className="w-full relative py-16 md:py-40 overflow-hidden bg-black/60 border-y border-white/5">
         <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
 
           <div className="flex flex-col gap-8 md:gap-10 reveal-left">
@@ -215,7 +215,7 @@ export default function Home() {
       </section>
 
       {/* The Method - Heavy Blur Reveal */}
-      <section className="max-w-7xl mx-auto px-6 w-full space-y-16 md:space-y-24 reveal-blur pt-20">
+      <section className="max-w-7xl mx-auto px-6 w-full space-y-12 md:space-y-24 reveal-blur pt-10 md:pt-20">
         <div className="text-center space-y-6">
           <h2 className="text-3xl md:text-5xl font-black uppercase italic tracking-tighter">THE <span className="gradient-text">METHOD</span></h2>
           <p className="text-gray-500 font-black uppercase tracking-[0.4em] text-[11px] border border-white/10 inline-block px-6 py-2 rounded-full bg-white/5">Deployment Workflow</p>
@@ -241,9 +241,9 @@ export default function Home() {
       </section >
 
       {/* Infinite Marquee - Trusted By */}
-      <section className="w-full py-20 border-y border-white/5 bg-black/40 overflow-hidden relative reveal-up">
+      <section className="w-full py-12 md:py-20 border-y border-white/5 bg-black/40 overflow-hidden relative reveal-up">
         <div className="absolute inset-0 bg-gradient-to-r from-background via-transparent to-background z-10 pointer-events-none" />
-        <div className="mb-10 text-center relative z-20">
+        <div className="mb-6 md:mb-10 text-center relative z-20">
           <p className="text-gray-500 font-black uppercase tracking-[0.4em] text-[11px] mb-2">Trusted By Global Institutions</p>
         </div>
         <div className="flex w-[400%] sm:w-[200%] md:w-[150%] animate-marquee">
@@ -265,7 +265,7 @@ export default function Home() {
       </section>
 
       {/* Metrics - Scale on Scroll */}
-      < section className="max-w-7xl mx-auto px-6 w-full text-center reveal-scale py-20" >
+      < section className="max-w-7xl mx-auto px-6 w-full text-center reveal-scale py-12 md:py-20" >
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12 bg-black/40 p-10 md:p-16 rounded-[2.5rem] md:rounded-[4rem] border border-white/5 shadow-2xl">
           {[
             { v: 500, suf: "K+", l: "MIGRATED RECORDS", c: "text-teal" },
