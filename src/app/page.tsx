@@ -240,6 +240,30 @@ export default function Home() {
         </div>
       </section >
 
+      {/* Infinite Marquee - Trusted By */}
+      <section className="w-full py-20 border-y border-white/5 bg-black/40 overflow-hidden relative reveal-up">
+        <div className="absolute inset-0 bg-gradient-to-r from-background via-transparent to-background z-10 pointer-events-none" />
+        <div className="mb-10 text-center relative z-20">
+          <p className="text-gray-500 font-black uppercase tracking-[0.4em] text-[11px] mb-2">Trusted By Global Institutions</p>
+        </div>
+        <div className="flex w-[200%] md:w-[150%] animate-marquee">
+          <div className="flex w-1/2 justify-around items-center px-4">
+            {["University of Oxford", "Stanford D-School", "MIT Libraries", "CERN Repository", "Tokyo Tech", "Harvard Dataverse"].map((name, i) => (
+              <span key={i} className="text-xl md:text-3xl font-black uppercase tracking-widest text-gray-500 whitespace-nowrap opacity-50 hover:opacity-100 hover:text-teal hover:scale-110 transition-all cursor-crosshair px-8">
+                {name}
+              </span>
+            ))}
+          </div>
+          <div className="flex w-1/2 justify-around items-center px-4">
+            {["University of Oxford", "Stanford D-School", "MIT Libraries", "CERN Repository", "Tokyo Tech", "Harvard Dataverse"].map((name, i) => (
+              <span key={`dup-${i}`} className="text-xl md:text-3xl font-black uppercase tracking-widest text-gray-500 whitespace-nowrap opacity-50 hover:opacity-100 hover:text-teal hover:scale-110 transition-all cursor-crosshair px-8">
+                {name}
+              </span>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Metrics - Scale on Scroll */}
       < section className="max-w-7xl mx-auto px-6 w-full text-center reveal-scale py-20" >
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-12 bg-black/40 p-16 rounded-[4rem] border border-white/5 shadow-2xl">
