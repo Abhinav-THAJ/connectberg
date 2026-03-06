@@ -19,8 +19,8 @@ export default function Navbar() {
   ];
 
   return (
-    <nav className="fixed top-8 left-1/2 -translate-x-1/2 w-full max-w-[1500px] z-[100] transition-all px-8">
-      <div className="premium-glass px-12 py-7 rounded-full flex items-center justify-between border-white/10 shadow-[0_30px_60px_-15px_rgba(0,0,0,0.6)] relative overflow-hidden">
+    <nav className="fixed top-4 md:top-8 left-1/2 -translate-x-1/2 w-full max-w-[1500px] z-[100] transition-all px-4 md:px-8">
+      <div className="premium-glass px-6 py-4 md:px-12 md:py-7 rounded-[2rem] md:rounded-full flex items-center justify-between border-white/10 shadow-[0_30px_60px_-15px_rgba(0,0,0,0.6)] relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-r from-teal/10 via-transparent to-lime/10 opacity-30 pointer-events-none" />
 
         <Link href="/" className="flex items-center gap-4 relative z-10 group">
