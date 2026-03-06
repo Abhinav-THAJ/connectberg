@@ -50,8 +50,8 @@ export default function Home() {
     <div className="flex flex-col gap-16 md:gap-32 pb-16 md:pb-32 overflow-hidden bg-background">
 
       {/* Hero Section */}
-      <section className="relative min-h-[90vh] flex flex-col items-center justify-center px-6 pt-10">
-        <div className="max-w-7xl w-full flex flex-col items-center text-center gap-8 relative z-10">
+      <section className="relative min-h-[60vh] md:min-h-[90vh] flex flex-col items-center justify-start md:justify-center px-6 pt-32 md:pt-10">
+        <div className="max-w-7xl w-full flex flex-col items-center text-center gap-6 md:gap-8 relative z-10">
 
           <motion.div
             initial={{ opacity: 0, y: -50, rotate: -10 }}
