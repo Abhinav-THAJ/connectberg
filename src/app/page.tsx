@@ -130,9 +130,9 @@ export default function Home() {
           {services.map((service, idx) => (
             <div
               key={service.title}
-              className={`group p-12 premium-glass rounded-[3.5rem] relative overflow-hidden flex flex-col items-center text-center border border-white/5 hover-pulse-border transition-all duration-500`}
+              className={`group p-8 md:p-12 premium-glass rounded-[2.5rem] md:rounded-[3.5rem] relative overflow-hidden flex flex-col items-center text-center border border-white/5 hover-pulse-border transition-all duration-500`}
             >
-              <div className="p-8 bg-black/40 rounded-[2rem] w-fit mb-10 group-hover:bg-teal/20 transition-all shadow-[0_0_40px_-10px_rgba(0,154,157,0.3)] duration-500 group-hover:scale-110 group-hover:rotate-6">
+              <div className="p-6 md:p-8 bg-black/40 rounded-[1.5rem] md:rounded-[2rem] w-fit mb-8 md:mb-10 group-hover:bg-teal/20 transition-all shadow-[0_0_40px_-10px_rgba(0,154,157,0.3)] duration-500 group-hover:scale-110 group-hover:rotate-6">
                 {service.icon}
               </div>
               <h3 className="text-2xl font-black mb-5 uppercase tracking-tighter italic leading-none">{service.title}</h3>
@@ -156,12 +156,12 @@ export default function Home() {
       </section>
 
       {/* Security Showcase - Slide Dual Direction */}
-      <section className="w-full relative py-40 overflow-hidden bg-black/60 border-y border-white/5">
-        <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+      <section className="w-full relative py-24 md:py-40 overflow-hidden bg-black/60 border-y border-white/5">
+        <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
 
-          <div className="flex flex-col gap-10 reveal-left">
+          <div className="flex flex-col gap-8 md:gap-10 reveal-left">
             <span className="text-lime font-black uppercase tracking-[0.5em] text-[10px] bg-lime/10 w-fit px-4 py-2 rounded-lg border border-lime/20 shadow-[0_0_20px_rgba(206,224,0,0.2)]">Security Protocols</span>
-            <h2 className="text-4xl md:text-6xl font-black uppercase leading-[0.85] tracking-tighter">
+            <h2 className="text-3xl md:text-5xl lg:text-6xl font-black uppercase leading-[0.85] tracking-tighter">
               Hardened <br /><span className="gradient-text italic">Fortress</span>
             </h2>
             <p className="text-lg text-gray-400 font-bold leading-relaxed max-w-lg">
@@ -187,9 +187,9 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="relative p-12 premium-glass rounded-[4rem] group overflow-hidden shadow-2xl border-teal/20 reveal-right hover-pulse-border cursor-pointer">
+          <div className="relative p-8 md:p-12 premium-glass rounded-[3rem] md:rounded-[4rem] group overflow-hidden shadow-2xl border-teal/20 reveal-right hover-pulse-border cursor-pointer">
             <div className="absolute inset-0 bg-gradient-to-br from-teal/20 via-transparent to-lime/10 opacity-30 group-hover:opacity-60 transition-opacity duration-700" />
-            <div className="relative z-10 flex flex-col gap-10 items-center text-center">
+            <div className="relative z-10 flex flex-col gap-8 md:gap-10 items-center text-center">
               <div className="relative">
                 <ZapIcon size={56} className="text-teal relative z-10 animate-bounce" />
                 <div className="absolute inset-0 bg-teal blur-[30px] opacity-40 animate-pulse" />
@@ -215,20 +215,20 @@ export default function Home() {
       </section>
 
       {/* The Method - Heavy Blur Reveal */}
-      <section className="max-w-7xl mx-auto px-6 w-full space-y-24 reveal-blur pt-20">
+      <section className="max-w-7xl mx-auto px-6 w-full space-y-16 md:space-y-24 reveal-blur pt-20">
         <div className="text-center space-y-6">
           <h2 className="text-3xl md:text-5xl font-black uppercase italic tracking-tighter">THE <span className="gradient-text">METHOD</span></h2>
           <p className="text-gray-500 font-black uppercase tracking-[0.4em] text-[11px] border border-white/10 inline-block px-6 py-2 rounded-full bg-white/5">Deployment Workflow</p>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
           {[
             { n: "01", t: "AUDIT", d: "Legacy evaluation & risk assessment." },
             { n: "02", t: "ENGINEER", d: "Bespoke logic & custom UI generation." },
             { n: "03", t: "MIGRATE", d: "Zero-loss data transfer protocol." },
             { n: "04", t: "OPERATE", d: "24/7 technical surveillance." }
           ].map((step, i) => (
-            <div key={i} className={`flex flex-col gap-6 p-10 premium-glass rounded-[3rem] group hover:bg-teal/5 transition-all text-center hover-pulse-border cursor-pointer relative overflow-hidden`} style={{ transitionDelay: `${i * 50}ms` }}>
+            <div key={i} className={`flex flex-col gap-6 p-8 md:p-10 premium-glass rounded-[2rem] md:rounded-[3rem] group hover:bg-teal/5 transition-all text-center hover-pulse-border cursor-pointer relative overflow-hidden`} style={{ transitionDelay: `${i * 50}ms` }}>
               <div className="absolute -top-10 -right-10 w-32 h-32 bg-teal/10 rounded-full filter blur-2xl group-hover:bg-lime/20 transition-colors" />
               <span className="text-6xl font-black gradient-text opacity-20 group-hover:opacity-100 group-hover:scale-125 transition-all relative z-10">{step.n}</span>
               <div className="space-y-4 relative z-10">
@@ -246,17 +246,17 @@ export default function Home() {
         <div className="mb-10 text-center relative z-20">
           <p className="text-gray-500 font-black uppercase tracking-[0.4em] text-[11px] mb-2">Trusted By Global Institutions</p>
         </div>
-        <div className="flex w-[200%] md:w-[150%] animate-marquee">
+        <div className="flex w-[400%] sm:w-[200%] md:w-[150%] animate-marquee">
           <div className="flex w-1/2 justify-around items-center px-4">
             {["University of Oxford", "Stanford D-School", "MIT Libraries", "CERN Repository", "Tokyo Tech", "Harvard Dataverse"].map((name, i) => (
-              <span key={i} className="text-xl md:text-3xl font-black uppercase tracking-widest text-gray-500 whitespace-nowrap opacity-50 hover:opacity-100 hover:text-teal hover:scale-110 transition-all cursor-crosshair px-8">
+              <span key={i} className="text-lg sm:text-xl md:text-3xl font-black uppercase tracking-widest text-gray-500 whitespace-nowrap opacity-50 hover:opacity-100 hover:text-teal hover:scale-110 transition-all cursor-crosshair px-6 md:px-8">
                 {name}
               </span>
             ))}
           </div>
           <div className="flex w-1/2 justify-around items-center px-4">
             {["University of Oxford", "Stanford D-School", "MIT Libraries", "CERN Repository", "Tokyo Tech", "Harvard Dataverse"].map((name, i) => (
-              <span key={`dup-${i}`} className="text-xl md:text-3xl font-black uppercase tracking-widest text-gray-500 whitespace-nowrap opacity-50 hover:opacity-100 hover:text-teal hover:scale-110 transition-all cursor-crosshair px-8">
+              <span key={`dup-${i}`} className="text-lg sm:text-xl md:text-3xl font-black uppercase tracking-widest text-gray-500 whitespace-nowrap opacity-50 hover:opacity-100 hover:text-teal hover:scale-110 transition-all cursor-crosshair px-6 md:px-8">
                 {name}
               </span>
             ))}
@@ -266,38 +266,38 @@ export default function Home() {
 
       {/* Metrics - Scale on Scroll */}
       < section className="max-w-7xl mx-auto px-6 w-full text-center reveal-scale py-20" >
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-12 bg-black/40 p-16 rounded-[4rem] border border-white/5 shadow-2xl">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12 bg-black/40 p-10 md:p-16 rounded-[2.5rem] md:rounded-[4rem] border border-white/5 shadow-2xl">
           {[
             { v: 500, suf: "K+", l: "MIGRATED RECORDS", c: "text-teal" },
             { v: 100, suf: "%", l: "SYSTEM UPTIME", c: "text-lime" },
             { v: 24, suf: "/7", l: "EXPERT ASSISTANCE", c: "text-teal" },
             { v: 15, suf: "+", l: "COUNTRIES SERVED", c: "text-white" }
           ].map((stat, i) => (
-            <div key={i} className="flex flex-col gap-5 hover:scale-110 transition-transform duration-500 cursor-cell">
-              <AnimatedCounter value={stat.v} suffix={stat.suf} className={`text-4xl md:text-6xl font-black uppercase tracking-tighter ${stat.c} italic drop-shadow-2xl`} />
-              <div className="text-[10px] font-black uppercase tracking-[0.4em] text-gray-500">{stat.l}</div>
+            <div key={i} className="flex flex-col gap-4 md:gap-5 hover:scale-110 transition-transform duration-500 cursor-cell">
+              <AnimatedCounter value={stat.v} suffix={stat.suf} className={`text-3xl sm:text-4xl md:text-6xl font-black uppercase tracking-tighter ${stat.c} italic drop-shadow-2xl`} />
+              <div className="text-[9px] md:text-[10px] font-black uppercase tracking-[0.2em] md:tracking-[0.4em] text-gray-500">{stat.l}</div>
             </div>
           ))}
         </div>
       </section >
 
       {/* CTA - Slide Up Deep */}
-      < section className="max-w-6xl mx-auto px-6 py-20 relative z-10 overflow-hidden" style={{ minHeight: "600px" }
+      < section className="max-w-6xl mx-auto px-6 py-12 md:py-20 relative z-10 overflow-hidden" style={{ minHeight: "400px" }
       }>
-        <div className="relative p-24 bg-gradient-to-br from-black to-[#05161a] rounded-[5rem] text-center overflow-hidden group border border-teal/30 reveal-up hover-pulse-border flex flex-col items-center">
+        <div className="relative p-10 md:p-24 bg-gradient-to-br from-black to-[#05161a] rounded-[3rem] md:rounded-[5rem] text-center overflow-hidden group border border-teal/30 reveal-up hover-pulse-border flex flex-col items-center">
           <div className="absolute inset-0 bg-gradient-to-br from-teal/20 via-transparent to-lime/10 opacity-50 pointer-events-none group-hover:scale-110 transition-transform duration-1000" />
 
           <div className="relative z-10 mb-6 p-5 bg-teal/10 rounded-full animate-bounce">
             <ZapIcon size={40} className="text-lime" />
           </div>
 
-          <h2 className="relative z-10 text-4xl md:text-6xl font-black uppercase italic leading-[0.8] tracking-tighter mb-10 pointer-events-none">
+          <h2 className="relative z-10 text-3xl md:text-6xl font-black uppercase italic leading-[0.8] tracking-tighter mb-6 md:mb-10 pointer-events-none">
             Ready <br /><span className="gradient-text underline decoration-white/10 underline-offset-8">Operate?</span>
           </h2>
-          <p className="relative z-10 text-lg md:text-2xl text-gray-300 mb-12 max-w-2xl mx-auto font-black uppercase tracking-wider pointer-events-none">
+          <p className="relative z-10 text-base md:text-2xl text-gray-300 mb-8 md:mb-12 max-w-2xl mx-auto font-black uppercase tracking-wider pointer-events-none">
             Initiate your digital transformation today. Stop waiting. Start building.
           </p>
-          <Link href="/contact" className="relative z-10 px-16 py-8 bg-teal text-black rounded-full font-black uppercase tracking-[0.4em] text-[14px] hover:scale-[1.15] hover:bg-lime active:scale-95 transition-all shadow-[0_0_40px_rgba(0,154,157,0.6)] inline-block cursor-pointer">
+          <Link href="/contact" className="relative z-10 px-8 py-6 md:px-16 md:py-8 bg-teal text-black rounded-[2rem] md:rounded-full font-black uppercase tracking-[0.2em] md:tracking-[0.4em] text-[12px] md:text-[14px] hover:scale-[1.15] hover:bg-lime active:scale-95 transition-all shadow-[0_0_40px_rgba(0,154,157,0.6)] inline-block cursor-pointer">
             Get Mission Started
           </Link>
         </div>
