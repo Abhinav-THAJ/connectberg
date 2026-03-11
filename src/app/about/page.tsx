@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { CheckCircle, Shield, Users, Clock, Database, Globe } from "lucide-react";
+import { Shield, Users, Database, Globe } from "lucide-react";
 
 export default function About() {
     return (

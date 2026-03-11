@@ -7,7 +7,7 @@ import { ArrowLeft } from "lucide-react";
 
 export default function LibrarySystems() {
     const libraryServices = [
-        { title: "Koha Library Automation", description: "The world's most advanced open-source ILS used by libraries worldwide." },
+        { title: "Koha Library Automation", description: "The world&apos;s most advanced open-source ILS used by libraries worldwide." },
         { title: "Digital Repositories (DSpace)", description: "Secure, scalable, and searchable digital archive implementation." },
         { title: "Greenstone & Omeka", description: "Specialized software for cultural heritage digital collections." },
         { title: "Moodle LMS", description: "E-learning platforms tailored for academic institutions." },
@@ -103,7 +103,7 @@ export default function LibrarySystems() {
                     <span className="text-sm font-black uppercase tracking-[0.4em] text-yellow mb-4 underline decoration-2 decoration-yellow underline-offset-8">Hardware Ecosystem</span>
                     <h2 className="text-4xl md:text-6xl font-black uppercase mb-12 italic leading-tight">Total <span className="text-teal">Automation</span> Control</h2>
                     <p className="max-w-3xl text-gray-400 mb-16 leading-relaxed">
-                        We don't just provide software; we manage the entire physical integration phase. From custom RFID hardware procurement
+                        We don&apos;t just provide software; we manage the entire physical integration phase. From custom RFID hardware procurement
                         to Kiosk configuration and self-checkout stations, we bring the physical library and digital system into one seamless workflow.
                     </p>
                     <div className="grid grid-cols-1 md:grid-cols-4 gap-4 w-full">

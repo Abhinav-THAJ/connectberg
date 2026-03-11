@@ -2,10 +2,9 @@
 
 import { motion, AnimatePresence, useScroll, useTransform } from "framer-motion";
 import Link from "next/link";
-import { ArrowRight, Book, Database, Layers, Shield, ZapIcon, Lock, Activity, Hexagon, Component } from "lucide-react";
-import { useEffect, useState, useRef } from "react";
+import { ArrowRight, Book, Database, Layers, Shield, ZapIcon, Lock, Activity, Hexagon } from "lucide-react";
+import { useEffect, useState } from "react";
 import { AnimatedCounter } from "../components/AnimatedCounter";
-import { VelocityScroll } from "../components/VelocityScroll";
 
 const HERO_WORDS = ["Sovereignty", "Intelligence", "Automation", "Excellence"];
 
@@ -126,6 +125,7 @@ export default function Home() {
               href="/contact"
               className="px-10 py-5 premium-glass border border-white/10 transition-all font-black uppercase tracking-[0.3em] text-[11px] rounded-2xl hover:bg-white/10 hover:scale-105"
             >
+              Initiate Project
             </Link>
           </motion.div>
         </motion.div>
@@ -170,12 +170,6 @@ export default function Home() {
             </motion.div>
           ))}
         </div>
-      </section>
-
-      {/* Extreme Scroll Velocity Marquee */}
-      <section className="w-full relative py-12 lg:py-24 overflow-hidden bg-background">
-        <VelocityScroll baseVelocity={-3}>CONNECTBERG AUTOMATION EXCELLENCE</VelocityScroll>
-        <VelocityScroll baseVelocity={3}>GLOBAL LIBRARIES SECURE REPOSITORIES</VelocityScroll>
       </section>
 
       {/* Security Showcase - Slide Dual Direction */}
@@ -339,12 +333,11 @@ export default function Home() {
       < section className="max-w-6xl mx-auto px-6 py-12 md:py-20 relative z-10 overflow-hidden" style={{ minHeight: "400px" }
       }>
         <motion.div
-          initial={{ opacity: 0, scale: 0.8, rotateX: 20 }}
-          whileInView={{ opacity: 1, scale: 1, rotateX: 0 }}
-          viewport={{ once: false, margin: "-100px" }}
-          transition={{ duration: 1.2, type: "spring", bounce: 0.4 }}
-          style={{ transformPerspective: 1000 }}
-          className="relative p-10 md:p-24 bg-gradient-to-br from-black to-[#05161a] rounded-[3rem] md:rounded-[5rem] text-center overflow-hidden group border border-teal/30 hover-pulse-border flex flex-col items-center shadow-[0_40px_100px_rgba(0,154,157,0.2)]"
+          initial={{ opacity: 0, y: 150 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className="relative p-10 md:p-24 bg-gradient-to-br from-black to-[#05161a] rounded-[3rem] md:rounded-[5rem] text-center overflow-hidden group border border-teal/30 hover-pulse-border flex flex-col items-center shadow-[0_0_80px_rgba(0,154,157,0.15)]"
         >
           <div className="absolute inset-0 bg-gradient-to-br from-teal/20 via-transparent to-lime/10 opacity-50 pointer-events-none group-hover:scale-110 transition-transform duration-1000" />
 

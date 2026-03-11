@@ -2,7 +2,7 @@
 
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
-import { ArrowRight, Book, Database, Layers, Settings, ShieldCheck, Zap, Cog, Server, Code, Globe, Lock, Workflow, ScanFace, FileDigit, ChevronDown, CheckCircle2 } from "lucide-react";
+import { Book, Database, Layers, Settings, ShieldCheck, Zap, Cog, Server, Code, Lock, Workflow, ScanFace, FileDigit, ChevronDown, CheckCircle2 } from "lucide-react";
 import { useState } from "react";
 
 export default function Services() {
@@ -189,7 +189,7 @@ export default function Services() {
                         </div>
                         <p className="text-xl text-gray-400 font-bold leading-relaxed tracking-wider">
                             We provide hardened cloud deployments, mirror configs, and impenetrable firewall setups.
-                            We don't just host; we armor your institutional data against vulnerabilities.
+                            We don&apos;t just host; we armor your institutional data against vulnerabilities.
                         </p>
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
                             {[
@@ -263,7 +263,7 @@ export default function Services() {
                         Deploy <br /><span className="gradient-text underline decoration-white/10 underline-offset-8">Infrastructure?</span>
                     </h2>
                     <p className="relative z-10 text-xl md:text-3xl text-gray-300 mb-14 max-w-2xl mx-auto font-black uppercase tracking-wider pointer-events-none">
-                        Architect your institution's digital backbone today.
+                        Architect your institution&apos;s digital backbone today.
                     </p>
                     <Link href="/contact" className="relative z-10 px-16 py-8 bg-teal text-black rounded-full font-black uppercase tracking-[0.4em] text-lg hover:scale-110 hover:bg-lime active:scale-95 transition-all shadow-[0_0_50px_rgba(0,154,157,0.5)] inline-block cursor-pointer">
                         Consult Engineers

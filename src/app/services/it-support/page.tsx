@@ -58,7 +58,7 @@ export default function ItSupport() {
                 <div className="relative z-10">
                     <h2 className="text-3xl font-bold mb-6 text-teal uppercase italic font-black">24/7 Elite Tech Support</h2>
                     <p className="text-lg text-gray-300 max-w-2xl mx-auto leading-relaxed">
-                        Our support desk is always active. Whether it's a server downtime or a data migration query,
+                        Our support desk is always active. Whether it&apos;s a server downtime or a data migration query,
                         our elite coders are just one call away. We provide dedicated virtual staff for institutional maintenance.
                     </p>
                 </div>
@@ -69,7 +69,7 @@ export default function ItSupport() {
                 <div>
                     <h2 className="text-4xl font-black uppercase mb-8 italic"><span className="text-teal">Security</span> Hardening</h2>
                     <p className="text-gray-400 mb-8 leading-relaxed">
-                        We don't just install software; we secure it. Our Ubuntu-based server environments are hardened with
+                        We don&apos;t just install software; we secure it. Our Ubuntu-based server environments are hardened with
                         advanced UFW policies, fail2ban for SSH security, and automated SSL certificate renewals.
                     </p>
                     <div className="flex flex-col gap-4">
@@ -88,8 +88,8 @@ export default function ItSupport() {
                 <div className="glass p-12 rounded-[3.5rem] border border-white/5 relative flex flex-col justify-center">
                     <h3 className="text-2xl font-black text-white italic mb-4">Infrastructure Strategy</h3>
                     <p className="text-sm text-gray-300 leading-relaxed italic border-l-2 border-yellow pl-6">
-                        "Connecting you to automated libraries means building a foundation that never fails.
-                        We architect for redundancy, so your institutional knowledge is always reachable."
+                        &quot;Connecting you to automated libraries means building a foundation that never fails.
+                        We architect for redundancy, so your institutional knowledge is always reachable.&quot;
                     </p>
                     <p className="mt-8 text-xs text-gray-500 uppercase tracking-widest font-black">— ConnectBerg Engineering</p>
                 </div>
