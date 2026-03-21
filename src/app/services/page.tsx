@@ -18,10 +18,10 @@ export default function Services() {
         "Helpdesk Core", "E-Commerce", "Portfolio Mgmt."
     ];
     return (
-        <div className="flex flex-col gap-32 pb-32 overflow-hidden bg-background">
+        <div className="flex flex-col gap-16 md:gap-32 pb-16 md:pb-32 overflow-hidden bg-background">
 
             {/* Hero Section */}
-            <section className="relative min-h-[80vh] flex flex-col items-center justify-center px-6 pt-20">
+            <section className="relative min-h-[55vh] md:min-h-[80vh] flex flex-col items-center justify-center px-4 sm:px-6 pt-20">
                 <div className="orb w-[500px] h-[500px] bg-teal/20 -top-48 -right-48" style={{ animation: "float 10s ease-in-out infinite" }} />
 
                 <motion.div
@@ -31,10 +31,10 @@ export default function Services() {
                     className="max-w-5xl w-full flex flex-col items-center text-center gap-10 relative z-10"
                 >
                     <span className="text-[12px] font-black uppercase tracking-[0.5em] text-black bg-teal px-8 py-3 rounded-full shadow-[0_0_30px_rgba(0,154,157,0.8)]">Our Arsenal</span>
-                    <h1 className="text-5xl md:text-7xl hero-text leading-[0.8] tracking-tighter">
+                    <h1 className="text-4xl sm:text-5xl md:text-7xl hero-text leading-[0.85] tracking-tighter">
                         Premium <br /><span className="gradient-text italic teal-glow">Systems</span>
                     </h1>
-                    <p className="text-lg md:text-2xl text-gray-400 font-bold leading-snug max-w-4xl tracking-tight">
+                    <p className="text-base sm:text-lg md:text-2xl text-gray-400 font-bold leading-snug max-w-4xl tracking-tight px-2">
                         ConnectBerg delivers highly-specialized digital automation tools,
                         architected from the ground up for extreme reliability.
                     </p>
@@ -42,7 +42,7 @@ export default function Services() {
             </section>
 
             {/* Service 1: Library Systems */}
-            <section className="max-w-7xl mx-auto px-6 w-full relative z-10 reveal-left" id="library-systems">
+            <section className="max-w-7xl mx-auto px-4 sm:px-6 w-full relative z-10 reveal-left" id="library-systems">
                 <div className="flex flex-col lg:flex-row gap-24 items-center">
                     <div className="lg:w-1/2 flex flex-col gap-12">
                         <div className="flex items-center gap-6">
@@ -72,7 +72,7 @@ export default function Services() {
                             ))}
                         </div>
                     </div>
-                    <div className="lg:w-1/2 w-full p-16 premium-glass rounded-[5rem] border-white/10 relative overflow-hidden group hover-pulse-border">
+                    <div className="lg:w-1/2 w-full p-8 sm:p-12 md:p-16 premium-glass rounded-[3rem] md:rounded-[5rem] border-white/10 relative overflow-hidden group hover-pulse-border">
                         <div className="absolute inset-0 bg-gradient-to-br from-teal/20 via-transparent to-transparent opacity-60 group-hover:scale-125 transition-transform duration-1000" />
                         <div className="relative z-10 grid grid-cols-2 gap-8">
                             <div className="h-56 bg-black/60 rounded-[3rem] flex flex-col items-center justify-center gap-4 border border-white/10 group-hover:bg-teal/10 transition-colors shadow-inset-deep">
@@ -93,7 +93,7 @@ export default function Services() {
             </section>
 
             {/* Service 2: Enterprise CRUD */}
-            <section className="max-w-7xl mx-auto px-6 w-full relative z-10 reveal-right bg-gradient-to-l from-black/50 to-transparent p-10 rounded-[5rem] border-r border-white/5" id="crud-systems">
+            <section className="max-w-7xl mx-auto px-4 sm:px-6 w-full relative z-10 reveal-right bg-gradient-to-l from-black/50 to-transparent p-6 sm:p-10 md:p-10 rounded-[3rem] md:rounded-[5rem] border-r border-white/5" id="crud-systems">
                 <div className="flex flex-col lg:flex-row-reverse gap-24 items-center">
                     <div className="lg:w-1/2 flex flex-col gap-12">
                         <div className="flex items-center gap-6">
@@ -152,7 +152,7 @@ export default function Services() {
                             )}
                         </AnimatePresence>
                     </div>
-                    <div className="lg:w-1/2 w-full p-16 premium-glass rounded-[5rem] border border-lime/20 relative overflow-hidden group hover-pulse-border">
+                    <div className="lg:w-1/2 w-full p-8 sm:p-12 md:p-16 premium-glass rounded-[3rem] md:rounded-[5rem] border border-lime/20 relative overflow-hidden group hover-pulse-border">
                         <div className="absolute inset-0 bg-gradient-to-tr from-lime/20 via-transparent to-transparent opacity-60 group-hover:scale-125 transition-transform duration-1000" />
                         <div className="relative z-10 flex flex-col gap-8">
                             <div className="p-10 bg-[#05161a] rounded-[3rem] border border-white/10 flex items-center justify-between group-hover:bg-lime/5 transition-colors">
@@ -178,7 +178,7 @@ export default function Services() {
             </section>
 
             {/* Service 3: IT Infrastructure */}
-            <section className="max-w-7xl mx-auto px-6 w-full relative z-10 reveal-rotate" id="it-support">
+            <section className="max-w-7xl mx-auto px-4 sm:px-6 w-full relative z-10 reveal-rotate" id="it-support">
                 <div className="flex flex-col lg:flex-row gap-24 items-center">
                     <div className="lg:w-1/2 flex flex-col gap-12">
                         <div className="flex items-center gap-6">
@@ -208,7 +208,7 @@ export default function Services() {
                             ))}
                         </div>
                     </div>
-                    <div className="lg:w-1/2 w-full p-16 premium-glass rounded-[5rem] border-teal/20 relative overflow-hidden flex flex-col items-center justify-center hover-pulse-border group">
+                    <div className="lg:w-1/2 w-full p-8 sm:p-12 md:p-16 premium-glass rounded-[3rem] md:rounded-[5rem] border-teal/20 relative overflow-hidden flex flex-col items-center justify-center hover-pulse-border group">
                         <div className="absolute inset-0 bg-gradient-to-br from-teal/30 via-transparent to-black opacity-50 group-hover:scale-125 transition-transform duration-1000" />
                         <Lock size={120} className="text-teal mb-10 relative z-10 group-hover:scale-110 transition-transform" />
                         <div className="relative z-10 text-center flex flex-col gap-6 w-full">
@@ -230,7 +230,7 @@ export default function Services() {
             </section>
 
             {/* Tech Stack Marquee */}
-            <section className="w-full relative py-32 overflow-hidden bg-black/50 border-y border-white/5 reveal-blur mt-10">
+            <section className="w-full relative py-16 md:py-32 overflow-hidden bg-black/50 border-y border-white/5 reveal-blur">
                 <div className="max-w-7xl mx-auto px-6 mb-20 text-center">
                     <h3 className="text-4xl font-black uppercase italic tracking-[0.3em] text-gray-500 drop-shadow-lg">The Execution Stack</h3>
                 </div>
@@ -256,16 +256,16 @@ export default function Services() {
             </section>
 
             {/* CTA */}
-            <section className="max-w-6xl mx-auto px-6 pt-32 relative z-10 reveal-up">
-                <div className="relative p-24 premium-glass rounded-[6rem] text-center overflow-hidden group border-teal/20 flex flex-col items-center hover-pulse-border cursor-pointer">
+            <section className="max-w-6xl mx-auto px-4 sm:px-6 pt-10 md:pt-32 relative z-10 reveal-up">
+                <div className="relative p-8 sm:p-14 md:p-24 premium-glass rounded-[3rem] md:rounded-[6rem] text-center overflow-hidden group border-teal/20 flex flex-col items-center hover-pulse-border cursor-pointer">
                     <div className="absolute inset-0 bg-gradient-to-br from-teal/20 via-transparent to-lime/10 opacity-50 pointer-events-none group-hover:scale-125 transition-transform duration-1000" />
-                    <h2 className="relative z-10 text-5xl md:text-7xl font-black uppercase italic leading-[0.8] tracking-tighter mb-10 pointer-events-none drop-shadow-2xl">
+                    <h2 className="relative z-10 text-3xl sm:text-5xl md:text-7xl font-black uppercase italic leading-[0.85] tracking-tighter mb-6 md:mb-10 pointer-events-none drop-shadow-2xl">
                         Deploy <br /><span className="gradient-text underline decoration-white/10 underline-offset-8">Infrastructure?</span>
                     </h2>
-                    <p className="relative z-10 text-xl md:text-3xl text-gray-300 mb-14 max-w-2xl mx-auto font-black uppercase tracking-wider pointer-events-none">
+                    <p className="relative z-10 text-sm sm:text-xl md:text-3xl text-gray-300 mb-8 md:mb-14 max-w-2xl mx-auto font-black uppercase tracking-wider pointer-events-none">
                         Architect your institution&apos;s digital backbone today.
                     </p>
-                    <Link href="/contact" className="relative z-10 px-16 py-8 bg-teal text-black rounded-full font-black uppercase tracking-[0.4em] text-lg hover:scale-110 hover:bg-lime active:scale-95 transition-all shadow-[0_0_50px_rgba(0,154,157,0.5)] inline-block cursor-pointer">
+                    <Link href="/contact" className="relative z-10 px-10 py-6 md:px-16 md:py-8 bg-teal text-black rounded-full font-black uppercase tracking-[0.2em] md:tracking-[0.4em] text-sm md:text-lg hover:scale-110 hover:bg-lime active:scale-95 transition-all shadow-[0_0_50px_rgba(0,154,157,0.5)] inline-block cursor-pointer">
                         Consult Engineers
                     </Link>
                 </div>
